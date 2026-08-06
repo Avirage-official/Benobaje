@@ -65,6 +65,26 @@
     }
   });
 
+  /* Video slots: same contract as images — hide a missing video so the
+     placeholder (with its upload path) shows through. */
+  document.querySelectorAll(".media video").forEach(function (v) {
+    var fig = v.closest(".media");
+    var fail = function () { v.classList.add("is-missing"); };
+    v.addEventListener("error", fail);
+    v.querySelectorAll("source").forEach(function (s) {
+      s.addEventListener("error", fail);
+    });
+    v.addEventListener("loadeddata", function () {
+      fig && fig.classList.add("is-loaded");
+    });
+    if (v.readyState >= 2) fig && fig.classList.add("is-loaded");
+  });
+
+  document.querySelectorAll(".media iframe").forEach(function (f) {
+    var fig = f.closest(".media");
+    fig && fig.classList.add("is-loaded");
+  });
+
   /* Footer year */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();

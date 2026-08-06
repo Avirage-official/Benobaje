@@ -13,6 +13,7 @@ work/remy-martin.html       Rémy Martin — 1738 Accord Royal (2022)
 work/senter-festival.html   Senter Festival, Sri Lanka (2025)
 work/nothing-phone.html     Nothing — Phone (1) Launch (2022)
 work/mightyjaxx-flexx.html  MightyJaxx — FLEXX (2024)
+work/wahbanana.html         Wahbanana — Platform-Native Comedy (2023–24)
 about.html            Analyst-to-strategist story, expertise, toolkit
 music.html            AFROJUNIOR — releases, DJ sets, curated rooms
 contact.html          Contact
@@ -42,9 +43,26 @@ no code changes needed.
 | `assets/img/work/flexx-hero.jpg` | FLEXX hero + thumbnails | Landscape 16:9, ~2400px wide |
 | `assets/img/work/flexx-01.jpg` | FLEXX — execution | Landscape 16:9 |
 | `assets/img/work/flexx-02.jpg` | FLEXX — execution | Landscape 16:9 |
+| `assets/img/work/wahbanana-hero.jpg` | Wahbanana hero + thumbnails | Landscape 16:9, ~2400px wide |
+| `assets/img/work/wahbanana-01.jpg` | Wahbanana — execution | Landscape 16:9 |
+| `assets/img/work/wahbanana-02.jpg` | Wahbanana — execution | Landscape 16:9 |
 | `assets/img/music/afrojunior.jpg` | Music page hero | Landscape, ~2400×1150 |
 
-Keep files under ~500 KB each where possible (export at quality ~80).
+Keep image files under ~500 KB each where possible (export at quality ~80).
+
+## Video uploads
+
+Same placeholder system — drop an `.mp4` (H.264, 1080p, ideally under ~50 MB)
+at these paths and it appears with native player controls, using the case
+study's hero image as its poster frame:
+
+| File path | Used on |
+|---|---|
+| `assets/video/remy.mp4` | Rémy Martin — The Execution |
+| `assets/video/senter.mp4` | Senter Festival — The Execution |
+| `assets/video/flexx.mp4` | MightyJaxx FLEXX — The Execution |
+
+(Wahbanana embeds its sketch directly from YouTube, so no upload needed there.)
 
 ## Local preview
 
