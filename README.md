@@ -8,6 +8,7 @@ Pure static HTML/CSS/JS. No build step, no dependencies. Deployable as-is to Git
 
 ```
 index.html            Homepage — hero, client marquee, selected work, statement
+concepts.html         Concepts — original ideas ahead of their briefs
 work.html             Case study index
 work/remy-martin.html       Rémy Martin — 1738 Accord Royal (2022)
 work/senter-festival.html   Senter Festival, Sri Lanka (2025)
@@ -47,6 +48,9 @@ no code changes needed.
 | `assets/img/work/wahbanana-01.jpg` | Wahbanana — execution | Landscape 16:9 |
 | `assets/img/work/wahbanana-02.jpg` | Wahbanana — execution | Landscape 16:9 |
 | `assets/img/music/afrojunior.jpg` | Music page hero | Landscape, ~2400×1150 |
+| `assets/img/concepts/concept-01.jpg` | Concepts — 001 | Landscape 16:9 |
+| `assets/img/concepts/concept-02.jpg` | Concepts — 002 | Landscape 16:9 |
+| `assets/img/concepts/concept-03.jpg` | Concepts — 003 | Landscape 16:9 |
 
 Keep image files under ~500 KB each where possible (export at quality ~80).
 
