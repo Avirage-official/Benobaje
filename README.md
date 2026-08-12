@@ -9,6 +9,7 @@ Pure static HTML/CSS/JS. No build step, no dependencies. Deployable as-is to Git
 ```
 index.html            Homepage — hero, client marquee, selected work, statement
 concepts.html         Concepts — original ideas ahead of their briefs
+concepts/velocity-vs-coherence.html   Velocity vs. Coherence — on time as a brand attribute (Whis & Key)
 work.html             Case study index
 work/remy-martin.html       Rémy Martin — 1738 Accord Royal (2022)
 work/senter-festival.html   Senter Festival, Sri Lanka (2025)
@@ -67,6 +68,18 @@ study's hero image as its poster frame:
 | `assets/video/flexx.mp4` | MightyJaxx FLEXX — The Execution |
 
 (Wahbanana embeds its sketch directly from YouTube, so no upload needed there.)
+
+## Audio uploads
+
+Concept pages can carry a music/sound player instead of (or alongside) video —
+same placeholder contract as images and video: drop an `.mp3` at the path
+below and the drip timeline syncs playback to it automatically. Until then,
+the interactive mechanic still works, driven by a simulated timer, and shows
+"sound design in production" instead of a broken player.
+
+| File path | Used on | Notes |
+|---|---|---|
+| `assets/audio/concepts/velocity-drip.mp3` | Velocity vs. Coherence — the drip player | Continuous ~60–90s soundscape: a single slow drip building to a full pour around two-thirds in, then receding — mapped to the 6am–midnight timeline |
 
 ## Local preview
 
