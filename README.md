@@ -8,8 +8,10 @@ Pure static HTML/CSS/JS. No build step, no dependencies. Deployable as-is to Git
 
 ```
 index.html            Homepage — hero, client marquee, selected work, statement
-concepts.html         Concepts — original ideas ahead of their briefs
-concepts/velocity-vs-coherence.html   Velocity vs. Coherence — on time as a brand attribute (Whis & Key)
+concepts.html         Concept index — original ideas ahead of their briefs
+concepts/concept-01.html    Concept 001 — detail page
+concepts/concept-02.html    Concept 002 — detail page
+concepts/concept-03.html    Concept 003 — detail page
 work.html             Case study index
 work/remy-martin.html       Rémy Martin — 1738 Accord Royal (2022)
 work/senter-festival.html   Senter Festival, Sri Lanka (2025)
@@ -49,9 +51,15 @@ no code changes needed.
 | `assets/img/work/wahbanana-01.jpg` | Wahbanana — execution | Landscape 16:9 |
 | `assets/img/work/wahbanana-02.jpg` | Wahbanana — execution | Landscape 16:9 |
 | `assets/img/music/afrojunior.jpg` | Music page hero | Landscape, ~2400×1150 |
-| `assets/img/concepts/concept-01.jpg` | Concepts — 001 | Landscape 16:9 |
-| `assets/img/concepts/concept-02.jpg` | Concepts — 002 | Landscape 16:9 |
-| `assets/img/concepts/concept-03.jpg` | Concepts — 003 | Landscape 16:9 |
+| `assets/img/concepts/concept-01.jpg` | Concept 001 — index card + detail hero | Landscape 16:9 |
+| `assets/img/concepts/concept-01-a.jpg` | Concept 001 — What It Looks Like | Landscape 16:9 |
+| `assets/img/concepts/concept-01-b.jpg` | Concept 001 — What It Looks Like | Landscape 16:9 |
+| `assets/img/concepts/concept-02.jpg` | Concept 002 — index card + detail hero | Landscape 16:9 |
+| `assets/img/concepts/concept-02-a.jpg` | Concept 002 — What It Looks Like | Landscape 16:9 |
+| `assets/img/concepts/concept-02-b.jpg` | Concept 002 — What It Looks Like | Landscape 16:9 |
+| `assets/img/concepts/concept-03.jpg` | Concept 003 — index card + detail hero | Landscape 16:9 |
+| `assets/img/concepts/concept-03-a.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
+| `assets/img/concepts/concept-03-b.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
 
 Keep image files under ~500 KB each where possible (export at quality ~80).
 
