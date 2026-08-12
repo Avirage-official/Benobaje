@@ -71,7 +71,7 @@ poster frame:
 
 | File path | Used on |
 |---|---|
-| `assets/video/showreel.mp4` | Homepage — Showreel, below Selected Work |
+| `assets/video/showreel.mp4` | Homepage — Showreel, below Selected Work — plays silently on loop as soon as it's in view (no click, no controls, no audio track needed). Keep it short, ~15–30s |
 | `assets/video/remy.mp4` | Rémy Martin — The Execution |
 | `assets/video/senter.mp4` | Senter Festival — The Execution |
 | `assets/video/flexx.mp4` | MightyJaxx FLEXX — The Execution |
