@@ -9,7 +9,7 @@ Pure static HTML/CSS/JS. No build step, no dependencies. Deployable as-is to Git
 ```
 index.html            Homepage — hero, client marquee, selected work, statement
 concepts.html         Concept index — original ideas ahead of their briefs
-concepts/concept-01.html    Concept 001 — detail page
+concepts/concept-01.html    Concept 001 — Velocity vs. Coherence (on time as a brand attribute)
 concepts/concept-02.html    Concept 002 — detail page
 concepts/concept-03.html    Concept 003 — detail page
 work.html             Case study index
@@ -52,8 +52,6 @@ no code changes needed.
 | `assets/img/work/wahbanana-02.jpg` | Wahbanana — execution | Landscape 16:9 |
 | `assets/img/music/afrojunior.jpg` | Music page hero | Landscape, ~2400×1150 |
 | `assets/img/concepts/concept-01.jpg` | Concept 001 — index card + detail hero | Landscape 16:9 |
-| `assets/img/concepts/concept-01-a.jpg` | Concept 001 — What It Looks Like | Landscape 16:9 |
-| `assets/img/concepts/concept-01-b.jpg` | Concept 001 — What It Looks Like | Landscape 16:9 |
 | `assets/img/concepts/concept-02.jpg` | Concept 002 — index card + detail hero | Landscape 16:9 |
 | `assets/img/concepts/concept-02-a.jpg` | Concept 002 — What It Looks Like | Landscape 16:9 |
 | `assets/img/concepts/concept-02-b.jpg` | Concept 002 — What It Looks Like | Landscape 16:9 |
@@ -76,6 +74,18 @@ study's hero image as its poster frame:
 | `assets/video/flexx.mp4` | MightyJaxx FLEXX — The Execution |
 
 (Wahbanana embeds its sketch directly from YouTube, so no upload needed there.)
+
+## Audio uploads
+
+Concept pages can carry a music/sound player instead of (or alongside) video —
+same placeholder contract as images and video: drop an `.mp3` at the path
+below and the drip timeline syncs playback to it automatically. Until then,
+the interactive mechanic still works, driven by a simulated timer, and shows
+"sound design in production" instead of a broken player.
+
+| File path | Used on | Notes |
+|---|---|---|
+| `assets/audio/concepts/velocity-drip.mp3` | Velocity vs. Coherence — the drip player | Continuous ~60–90s soundscape: a single slow drip building to a full pour around two-thirds in, then receding — mapped to the 6am–midnight timeline |
 
 ## Local preview
 
