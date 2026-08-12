@@ -34,6 +34,7 @@ no code changes needed.
 | File path | Used on | Orientation / suggested size |
 |---|---|---|
 | `assets/img/hero.jpg` | Homepage hero | Landscape, ~2400×1150 |
+| `assets/img/showreel-poster.jpg` | Homepage — Showreel poster frame | Landscape 21:10, ~2400px wide |
 | `assets/img/portrait.jpg` | About | Portrait 4:5, ~1600×2000 |
 | `assets/img/work/remy-hero.jpg` | Rémy Martin hero + thumbnails | Landscape 16:9, ~2400px wide |
 | `assets/img/work/remy-01.jpg` | Rémy Martin — execution | Landscape 16:9 |
@@ -65,10 +66,12 @@ Keep image files under ~500 KB each where possible (export at quality ~80).
 
 Same placeholder system — drop an `.mp4` (H.264, 1080p, ideally under ~50 MB)
 at these paths and it appears with native player controls, using the case
-study's hero image as its poster frame:
+study's hero image (or, for the showreel, its own poster image above) as its
+poster frame:
 
 | File path | Used on |
 |---|---|
+| `assets/video/showreel.mp4` | Homepage — Showreel, below Selected Work — plays silently on loop as soon as it's in view (no click, no controls, no audio track needed). Keep it short, ~15–30s |
 | `assets/video/remy.mp4` | Rémy Martin — The Execution |
 | `assets/video/senter.mp4` | Senter Festival — The Execution |
 | `assets/video/flexx.mp4` | MightyJaxx FLEXX — The Execution |
