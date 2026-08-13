@@ -10,7 +10,7 @@ Pure static HTML/CSS/JS. No build step, no dependencies. Deployable as-is to Git
 index.html            Homepage — hero, client marquee, selected work, statement
 concepts.html         Concept index — original ideas ahead of their briefs
 concepts/concept-01.html    Concept 001 — Velocity vs. Coherence (on time as a brand attribute)
-concepts/concept-02.html    Concept 002 — detail page
+concepts/concept-02.html    Concept 002 — The Quiet Signal (proximity over scale)
 concepts/concept-03.html    Concept 003 — detail page
 work.html             Case study index
 work/remy-martin.html       Rémy Martin — 1738 Accord Royal (2022)
@@ -54,8 +54,6 @@ no code changes needed.
 | `assets/img/music/afrojunior.jpg` | Music page hero | Landscape, ~2400×1150 |
 | `assets/img/concepts/concept-01.jpg` | Concept 001 — index card + detail hero | Landscape 16:9 |
 | `assets/img/concepts/concept-02.jpg` | Concept 002 — index card + detail hero | Landscape 16:9 |
-| `assets/img/concepts/concept-02-a.jpg` | Concept 002 — What It Looks Like | Landscape 16:9 |
-| `assets/img/concepts/concept-02-b.jpg` | Concept 002 — What It Looks Like | Landscape 16:9 |
 | `assets/img/concepts/concept-03.jpg` | Concept 003 — index card + detail hero | Landscape 16:9 |
 | `assets/img/concepts/concept-03-a.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
 | `assets/img/concepts/concept-03-b.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
@@ -82,13 +80,14 @@ poster frame:
 
 Concept pages can carry a music/sound player instead of (or alongside) video —
 same placeholder contract as images and video: drop an `.mp3` at the path
-below and the drip timeline syncs playback to it automatically. Until then,
-the interactive mechanic still works, driven by a simulated timer, and shows
-"sound design in production" instead of a broken player.
+below and the concept's scrub player syncs playback to it automatically.
+Until then, the interactive mechanic still works, driven by a simulated
+timer, and shows "sound design in production" instead of a broken player.
 
 | File path | Used on | Notes |
 |---|---|---|
 | `assets/audio/concepts/velocity-drip.mp3` | Velocity vs. Coherence — the drip player | Continuous ~60–90s soundscape: a single slow drip building to a full pour around two-thirds in, then receding — mapped to the 6am–midnight timeline |
+| `assets/audio/concepts/quiet-signal.mp3` | The Quiet Signal — the tuner | ~20–30s of layered noise/chatter thinning out into near-silence or a single clear tone as it plays — mapped to the noise-to-signal timeline |
 
 ## Local preview
 

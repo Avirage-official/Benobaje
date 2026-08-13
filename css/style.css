@@ -1439,14 +1439,138 @@ figcaption {
 
 .concept:hover .concept-play { background: var(--cognac); }
 
-/* ------------------------------------------------------------ drip player */
+/* -------------------------------------------------------------- av-player */
+/* Shared chrome for a concept's scrubbable audio/visual mechanic — a stage
+   (bespoke per concept) plus a play button + timeline + label (shared). */
 
-.drip {
+.av-player {
   margin-top: var(--space-2);
   border: 1px solid var(--line);
   background: var(--bone-deep);
   padding: clamp(1.5rem, 3.5vw, 2.75rem);
 }
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.5rem);
+}
+
+.player-play {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+
+.player-play:hover,
+.player-play:focus-visible { background: var(--ink); color: var(--bone); }
+
+.player-play-icon::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent currentColor;
+  margin-left: 2px;
+}
+
+.player-play.is-playing .player-play-icon::before {
+  width: 9px;
+  height: 12px;
+  border-style: none;
+  border-width: 0;
+  margin-left: 0;
+  background:
+    linear-gradient(currentColor, currentColor) 0 0 / 3px 12px no-repeat,
+    linear-gradient(currentColor, currentColor) 6px 0 / 3px 12px no-repeat;
+}
+
+.player-timeline {
+  flex: 1;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.player-track {
+  position: relative;
+  height: 3px;
+  background: var(--line);
+  margin-block: 0.7rem;
+}
+
+.player-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  background: var(--cognac);
+}
+
+.player-handle {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--bone-deep);
+  box-shadow: 0 0 0 1px var(--line);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+}
+
+.player-timeline:active .player-handle,
+.player-handle:active { cursor: grabbing; }
+
+.player-marks {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+}
+
+.player-label {
+  flex-shrink: 0;
+  min-width: 5.4ch;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.player-caption {
+  margin-top: 1.3rem;
+  max-width: 58ch;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.player-audio-status {
+  display: inline-block;
+  margin-left: 0.3em;
+  color: var(--cognac);
+}
+
+@media (max-width: 560px) {
+  .player-controls { flex-wrap: wrap; }
+  .player-timeline { order: 3; flex-basis: 100%; }
+  .player-label { order: 2; margin-left: auto; }
+}
+
+/* ------------------------------------------------------------ drip stage */
 
 .drip-stage {
   position: relative;
@@ -1529,124 +1653,75 @@ figcaption {
   50%      { opacity: 1; }
 }
 
-.drip-controls {
-  display: flex;
-  align-items: center;
-  gap: clamp(0.9rem, 2vw, 1.5rem);
-}
+/* ----------------------------------------------------------- tuner stage */
 
-.drip-play {
-  flex-shrink: 0;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1px solid var(--ink);
-  background: transparent;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out);
-}
-
-.drip-play:hover,
-.drip-play:focus-visible { background: var(--ink); color: var(--bone); }
-
-.drip-play-icon::before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 0 6px 10px;
-  border-color: transparent transparent transparent currentColor;
-  margin-left: 2px;
-}
-
-.drip-play.is-playing .drip-play-icon::before {
-  width: 9px;
-  height: 12px;
-  border-style: none;
-  border-width: 0;
-  margin-left: 0;
-  background:
-    linear-gradient(currentColor, currentColor) 0 0 / 3px 12px no-repeat,
-    linear-gradient(currentColor, currentColor) 6px 0 / 3px 12px no-repeat;
-}
-
-.drip-timeline {
-  flex: 1;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.drip-track {
+.tuner-stage {
   position: relative;
-  height: 3px;
-  background: var(--line);
-  margin-block: 0.7rem;
+  height: clamp(150px, 24vw, 220px);
+  overflow: hidden;
+  background: var(--bone);
+  border: 1px solid var(--line-soft);
+  margin-bottom: var(--space-1);
 }
 
-.drip-fill {
+.tuner-pill {
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 0%;
-  background: var(--cognac);
+  padding: 0.4em 0.85em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: var(--ink-soft);
+  background: var(--bone-deep);
+  border: 1px solid var(--line);
+  transition: opacity 0.5s var(--ease-out), filter 0.5s var(--ease-out);
+  animation: tuner-jitter 2.6s ease-in-out infinite;
+  animation-delay: var(--jitter-delay, 0s);
 }
 
-.drip-handle {
+.tuner-pill:nth-child(3n)  { animation-duration: 3.4s; }
+.tuner-pill:nth-child(3n+1) { animation-duration: 2.1s; }
+
+@keyframes tuner-jitter {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(0.4em, -0.3em); }
+}
+
+.tuner-signal {
   position: absolute;
-  top: 50%;
-  left: 0%;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--ink);
-  border: 2px solid var(--bone-deep);
-  box-shadow: 0 0 0 1px var(--line);
-  transform: translate(-50%, -50%);
-  cursor: grab;
-}
-
-.drip-timeline:active .drip-handle,
-.drip-handle:active { cursor: grabbing; }
-
-.drip-marks {
+  inset: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-inline: 2rem;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+  pointer-events: none;
+}
+
+.tuner-stage.is-tuned-in .tuner-signal {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tuner-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 380;
+  font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+  line-height: 1.4;
+  max-width: 26em;
+}
+
+.tuner-quote-src {
+  margin-top: 0.6rem;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.03em;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
   color: var(--ink-soft);
-}
-
-.drip-clock {
-  flex-shrink: 0;
-  min-width: 5.4ch;
-  text-align: right;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-}
-
-.drip-caption {
-  margin-top: 1.3rem;
-  max-width: 58ch;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: var(--ink-soft);
-}
-
-.drip-audio-status {
-  display: inline-block;
-  margin-left: 0.3em;
-  color: var(--cognac);
-}
-
-@media (max-width: 560px) {
-  .drip-controls { flex-wrap: wrap; }
-  .drip-timeline { order: 3; flex-basis: 100%; }
-  .drip-clock { order: 2; margin-left: auto; }
 }
 
 /* -------------------------------------------------------- unhurried pace */
