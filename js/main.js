@@ -90,29 +90,29 @@
     el.textContent = new Date().getFullYear();
   });
 
-  /* Drip player: a scrubbable 6am-to-midnight timeline. Dragging or
-     pressing play moves a position (0-1) that drives the drip's tempo —
-     slow at dawn, quickening toward a full pour around 6pm, slow again
-     by midnight — and, once real audio is uploaded, the track itself. */
-  document.querySelectorAll(".drip").forEach(function (drip) {
-    var stage = drip.querySelector(".drip-stage");
-    var playBtn = drip.querySelector(".drip-play");
-    var timeline = drip.querySelector(".drip-timeline");
-    var track = drip.querySelector(".drip-track");
-    var fill = drip.querySelector(".drip-fill");
-    var handle = drip.querySelector(".drip-handle");
-    var clock = drip.querySelector(".drip-clock");
-    var audio = drip.querySelector(".drip-audio");
-    var statusEl = drip.querySelector(".drip-audio-status");
-    if (!stage || !playBtn || !timeline || !track) return;
+  /* Shared av-player: a scrubbable 0-1 position, driven by dragging the
+     timeline or pressing play (which sweeps it over playDurationMs). Each
+     concept supplies its own renderStage()/formatLabel() for what that
+     position actually means and looks like; audio is optional and, once
+     a real file is uploaded, syncs to the same position automatically. */
+  function initAvPlayer(root, opts) {
+    var playBtn = root.querySelector(".player-play");
+    var timeline = root.querySelector(".player-timeline");
+    var track = root.querySelector(".player-track");
+    var fill = root.querySelector(".player-fill");
+    var handle = root.querySelector(".player-handle");
+    var label = root.querySelector(".player-label");
+    var audio = root.querySelector(".player-audio");
+    var statusEl = root.querySelector(".player-audio-status");
+    if (!playBtn || !timeline || !track) return;
 
-    var pos = 0; // 0 = 6:00am, 1 = 12:00am (18hr span)
+    var pos = 0;
     var playing = false;
     var dragging = false;
     var rafId = null;
     var startTime = null;
     var startPos = 0;
-    var PLAY_DURATION_MS = 22000; // one full 6am-midnight sweep
+    var playDurationMs = opts.playDurationMs || 20000;
 
     /* Audio: same missing-media contract as .media — a 404 source falls
        back gracefully, and the interactive mechanic works either way. */
@@ -136,38 +136,16 @@
       }, 1500);
     }
 
-    function formatClock(t) {
-      var totalMin = Math.round(t * 18 * 60); // 18hr span from 6am
-      var h = 6 + Math.floor(totalMin / 60);
-      var m = totalMin % 60;
-      if (h >= 24) h -= 24;
-      var period = h >= 12 ? "pm" : "am";
-      var h12 = h % 12;
-      if (h12 === 0) h12 = 12;
-      return h12 + ":" + (m < 10 ? "0" : "") + m + period;
-    }
-
-    function tempoInterval(t) {
-      var peak = 0.75;
-      var d = t < peak ? (peak - t) / peak : (t - peak) / (1 - peak);
-      d = Math.min(Math.max(d, 0), 1);
-      var ms = 650 + (3400 - 650) * d;
-      return ms / 1000;
-    }
-
     function render(t) {
       pos = Math.min(Math.max(t, 0), 1);
-      var pouring = pos >= 0.68 && pos <= 0.85;
-      stage.style.setProperty("--pos", pos.toFixed(3));
-      stage.style.setProperty("--drip-interval", tempoInterval(pos).toFixed(2) + "s");
-      stage.classList.toggle("is-pouring", pouring);
       var pct = (pos * 100).toFixed(2) + "%";
       fill.style.width = pct;
       handle.style.left = pct;
-      var label = formatClock(pos);
-      clock.textContent = label;
+      var text = opts.formatLabel(pos);
+      if (label) label.textContent = text;
       timeline.setAttribute("aria-valuenow", Math.round(pos * 100));
-      timeline.setAttribute("aria-valuetext", label);
+      timeline.setAttribute("aria-valuetext", text);
+      if (opts.renderStage) opts.renderStage(pos);
       if (audioReady && audio.duration && !playing) {
         audio.currentTime = pos * audio.duration;
       }
@@ -177,7 +155,6 @@
       playing = false;
       playBtn.classList.remove("is-playing");
       playBtn.setAttribute("aria-pressed", "false");
-      stage.classList.remove("is-paused");
       if (rafId) cancelAnimationFrame(rafId);
       rafId = null;
       if (audioReady) audio.pause();
@@ -188,7 +165,7 @@
       if (startTime === null) startTime = now;
       var elapsed = now - startTime;
       var remaining = 1 - startPos;
-      var t = startPos + (elapsed / PLAY_DURATION_MS) * remaining;
+      var t = startPos + (elapsed / playDurationMs) * remaining;
       if (t >= 1) {
         render(1);
         stopPlayback();
@@ -248,5 +225,67 @@
     });
 
     render(0);
+  }
+
+  /* Concept 001 — the drip: slow at dawn, quickening to a full pour
+     around 6pm, slow again by midnight. */
+  function dripFormatClock(t) {
+    var totalMin = Math.round(t * 18 * 60); // 18hr span from 6am
+    var h = 6 + Math.floor(totalMin / 60);
+    var m = totalMin % 60;
+    if (h >= 24) h -= 24;
+    var period = h >= 12 ? "pm" : "am";
+    var h12 = h % 12;
+    if (h12 === 0) h12 = 12;
+    return h12 + ":" + (m < 10 ? "0" : "") + m + period;
+  }
+
+  function dripTempoInterval(t) {
+    var peak = 0.75;
+    var d = t < peak ? (peak - t) / peak : (t - peak) / (1 - peak);
+    d = Math.min(Math.max(d, 0), 1);
+    return (650 + (3400 - 650) * d) / 1000;
+  }
+
+  document.querySelectorAll(".drip").forEach(function (drip) {
+    var stage = drip.querySelector(".drip-stage");
+    if (!stage) return;
+    initAvPlayer(drip, {
+      playDurationMs: 22000,
+      formatLabel: dripFormatClock,
+      renderStage: function (pos) {
+        var pouring = pos >= 0.68 && pos <= 0.85;
+        stage.style.setProperty("--pos", pos.toFixed(3));
+        stage.style.setProperty("--drip-interval", dripTempoInterval(pos).toFixed(2) + "s");
+        stage.classList.toggle("is-pouring", pouring);
+      }
+    });
+  });
+
+  /* Concept 002 — the tuner: dragging toward "Signal" thins out a field
+     of trend-noise pills, one by one, until a single quiet line is all
+     that's left. */
+  document.querySelectorAll(".tuner").forEach(function (tuner) {
+    var stage = tuner.querySelector(".tuner-stage");
+    if (!stage) return;
+    var pills = Array.prototype.slice.call(stage.querySelectorAll(".tuner-pill"));
+    var n = pills.length;
+    var fadeWidth = 0.16;
+
+    initAvPlayer(tuner, {
+      playDurationMs: 9000,
+      formatLabel: function (pos) {
+        var count = Math.round(27 - 26 * pos);
+        return count <= 1 ? "1 signal" : count + " signals";
+      },
+      renderStage: function (pos) {
+        pills.forEach(function (pill, i) {
+          var threshold = 0.08 + i * (0.7 / Math.max(n - 1, 1));
+          var opacity = pos <= threshold ? 0.85 : Math.max(0, 0.85 * (1 - (pos - threshold) / fadeWidth));
+          pill.style.opacity = opacity.toFixed(2);
+        });
+        stage.classList.toggle("is-tuned-in", pos >= 0.55);
+      }
+    });
   });
 })();
