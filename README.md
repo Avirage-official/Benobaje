@@ -53,12 +53,20 @@ no code changes needed.
 | `assets/img/work/wahbanana-02.jpg` | Wahbanana — execution | Landscape 16:9 |
 | `assets/img/music/afrojunior.jpg` | Music page hero | Landscape, ~2400×1150 |
 | `assets/img/concepts/concept-01.jpg` | Concept 001 — index card + detail hero | Landscape 16:9 |
+| `assets/img/concepts/velocity-deck-key-visual.jpg` | Concept 001 — Visual Direction Deck, key visual | Landscape 21:10, ~2400px wide. A close, warm shot of a single amber whiskey drop mid-fall into a glass, backlit, dark background, one small accent of royal-blue light reflected somewhere (a rim light or blurred blue bokeh) |
+| `assets/img/concepts/velocity-deck-bridge.jpg` | Concept 001 — Visual Direction Deck, "The Bridge" imagery-style tile | Landscape 4:3, ~1600×1200. A real, warm-lit, candid (not posed) photo of an older and younger person's hands both near a poured glass, mid-conversation |
+| `assets/img/concepts/velocity-deck-packaging.jpg` | Concept 001 — Visual Direction Deck, sample execution | Square 1:1 or portrait, ~1600px+. A mocked Instagram post or product packaging shot — bottle/label with the drip-cycle motif subtly integrated, gold/brown palette, one small royal-blue accent (foil stamp or light reflection), modern serif logotype |
 | `assets/img/concepts/concept-02.jpg` | Concept 002 — index card + detail hero | Landscape 16:9 |
 | `assets/img/concepts/concept-03.jpg` | Concept 003 — index card + detail hero | Landscape 16:9 |
 | `assets/img/concepts/concept-03-a.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
 | `assets/img/concepts/concept-03-b.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
 
 Keep image files under ~500 KB each where possible (export at quality ~80).
+
+The Visual Direction Deck's other three graphics — the drip motif (imagery-style
+tile), the tempo waveform (sonic identity), and the 9am–9pm full-cycle strip —
+are rendered live as inline SVG in `concepts/concept-01.html`, not images.
+No files needed for those; edit the `<svg>` markup directly to adjust them.
 
 ## Video uploads
 
