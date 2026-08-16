@@ -145,16 +145,19 @@ served to the browser.
 | `MERCHIZE_WEBHOOK_KEY` | Same Merchize dashboard page — the value they send back in the `merchize-webhook-key` header | `api/webhooks/merchize.js` (validates incoming webhooks) |
 | `SUPABASE_URL` | Supabase project → Settings → API | `lib/supabase.js` |
 | `SUPABASE_SERVICE_ROLE_KEY` | Same page — the **service role** key, not the anon/public one | same |
+| `ADMIN_SETUP_KEY` | Any random string you make up | `api/admin/register-revolut-webhook.js` (one-time setup lock) |
 
 Redeploy (or trigger a new deployment) after adding/changing env vars —
 Vercel functions only pick up new values on the next deploy.
 
 ### Webhook URLs to register
 
-Once deployed, give each provider your live function URL:
-
-- Revolut dashboard → Webhooks → `https://<your-domain>/api/webhooks/revolut`
-- Merchize dashboard → Webhooks → `https://<your-domain>/api/webhooks/merchize`
+- **Merchize**: dashboard → Webhooks → `https://<your-domain>/api/webhooks/merchize`
+- **Revolut**: some account tiers have no webhook UI in the dashboard, so this is registered via their API instead:
+  1. Set `ADMIN_SETUP_KEY` in Vercel to any random string you make up
+  2. Deploy, then visit `https://<your-domain>/api/admin/register-revolut-webhook?key=<that string>` once (in the browser is fine, it's a GET)
+  3. It registers `/api/webhooks/revolut` with Revolut and returns a `signing_secret` — copy that into `REVOLUT_WEBHOOK_SECRET` in Vercel and redeploy
+  4. Don't run it again after that (it'll just create a duplicate webhook) — check Revolut's dashboard if you're ever unsure whether it's already registered
 
 ### Supabase setup
 
