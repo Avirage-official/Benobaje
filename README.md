@@ -23,18 +23,6 @@ music.html            AFROJUNIOR — releases, DJ sets, curated rooms
 contact.html          Contact
 css/style.css         Full design system
 js/main.js            Nav, scroll reveals, image placeholder handling
-
-shop/index.html        Tyco — product grid
-shop/checkout.html     Tyco — shipping form + Revolut embedded payment
-shop/order-confirmed.html   Tyco — order status tracker
-css/shop.css            Tyco's own visual system (self-contained, no dependency on style.css)
-js/shop.js, js/checkout.js, js/order-status.js   Tyco client-side logic
-api/create-order.js          Creates the Revolut order + a pending Supabase row
-api/order-status.js          Polled by order-confirmed.html
-api/webhooks/revolut.js      Payment confirmed → marks paid → creates the Merchize order
-api/webhooks/merchize.js     Fulfilment status → updates Supabase
-lib/products.js, lib/revolut.js, lib/merchize.js, lib/supabase.js, lib/http.js   Server-side helpers (api/** only)
-sql/orders.sql                SQL to run once in Supabase
 ```
 
 ## Image uploads
@@ -115,86 +103,3 @@ timer, and shows "sound design in production" instead of a broken player.
 python3 -m http.server 8000
 # then open http://localhost:8000
 ```
-
-Note: this only serves the static pages. The `/api` functions (checkout,
-webhooks) need Node — use `vercel dev` instead when working on the Tyco
-shop (see below).
-
-## Tyco shop — checkout, Revolut, Merchize, Supabase
-
-`/shop` is a self-contained storefront: pick a product → shipping form →
-Revolut's embedded payment widget → Revolut confirms payment via webhook →
-that webhook creates the fulfilment order in Merchize → Merchize's webhook
-reports status back → Supabase holds the order record throughout. Nothing
-here shares code or styling with the rest of the portfolio on purpose.
-
-### Environment variables
-
-Set these in **Vercel → your project → Settings → Environment Variables**.
-Nothing below should ever go in the repo, in a commit, or in any file
-served to the browser.
-
-| Variable | Where it comes from | Used by |
-|---|---|---|
-| `REVOLUT_SECRET_KEY` | Revolut Business → Merchant API settings | `api/create-order.js` (server-side order creation) |
-| `REVOLUT_WEBHOOK_SECRET` | Shown when you create the webhook in the Revolut dashboard | `api/webhooks/revolut.js` (signature check) |
-| `REVOLUT_MODE` | `sandbox` while testing, `prod` when live | picks the right Revolut base URL + embed script |
-| `REVOLUT_API_BASE_URL` | Only needed if your account's API base URL differs from Revolut's documented defaults | overrides the sandbox/prod default |
-| `MERCHIZE_API_BASE_URL` | Merchize dashboard → API page (your store's own base URL) | `api/webhooks/revolut.js` (creates the fulfilment order) |
-| `MERCHIZE_ACCESS_TOKEN` | Same Merchize dashboard page | same |
-| `MERCHIZE_WEBHOOK_KEY` | Same Merchize dashboard page — the value they send back in the `merchize-webhook-key` header | `api/webhooks/merchize.js` (validates incoming webhooks) |
-| `SUPABASE_URL` | Supabase project → Settings → API | `lib/supabase.js` |
-| `SUPABASE_SERVICE_ROLE_KEY` | Same page — the **service role** key, not the anon/public one | same |
-| `ADMIN_SETUP_KEY` | Any random string you make up | `api/admin/register-revolut-webhook.js` (one-time setup lock) |
-
-Redeploy (or trigger a new deployment) after adding/changing env vars —
-Vercel functions only pick up new values on the next deploy.
-
-### Webhook URLs to register
-
-- **Merchize**: dashboard → Webhooks → `https://<your-domain>/api/webhooks/merchize`
-- **Revolut**: some account tiers have no webhook UI in the dashboard, so this is registered via their API instead:
-  1. Set `ADMIN_SETUP_KEY` in Vercel to any random string you make up
-  2. Deploy, then visit `https://<your-domain>/api/admin/register-revolut-webhook?key=<that string>` once (in the browser is fine, it's a GET)
-  3. It registers `/api/webhooks/revolut` with Revolut and returns a `signing_secret` — copy that into `REVOLUT_WEBHOOK_SECRET` in Vercel and redeploy
-  4. Don't run it again after that (it'll just create a duplicate webhook) — check Revolut's dashboard if you're ever unsure whether it's already registered
-
-### Supabase setup
-
-Run `sql/orders.sql` once in Supabase → SQL Editor. It creates the `orders`
-table with RLS enabled and no public policies — only the service role key
-(server-side only) can touch it.
-
-### Before going live — two things to verify against your own docs
-
-This was built from Revolut's public developer docs and the Merchize
-reference you shared, but two specifics couldn't be fully confirmed and
-are marked clearly in code comments:
-
-1. **`lib/merchize.js`** — the order-creation field names (`external_id`,
-   `shipping.*`, `items[].variant_code`) come from Merchize's general
-   order-import shape. Check them against the fuller API reference you
-   have (specifically the exact request schema and any required fields
-   not listed here) and adjust the function body if anything differs.
-2. **`api/webhooks/merchize.js`** — the webhook payload shape (which field
-   holds status vs. tracking) is a best guess, since the docs you pasted
-   covered auth/retry rules but not the event payload itself. Trigger a
-   test event from the Merchize dashboard, log `req.body` once, and
-   tighten the field lookups to match exactly what arrives.
-
-Everything else (Revolut order creation, Checkout widget, webhook
-signature verification, the Supabase writes) follows Revolut's documented
-API directly and shouldn't need adjustment.
-
-### What's still a placeholder
-
-- **Products** (`lib/products.js` + the matching copy in `js/shop.js` /
-  `js/checkout.js`): swap in your real Tyco catalog — names, prices, and
-  especially `merchizeVariantCode` for each variant, which must match the
-  exact variant code in your Merchize product catalog or fulfilment
-  orders will fail.
-- **Product images**: drop files at `assets/img/shop/<name>.jpg` matching
-  the paths already wired into `js/shop.js` and `js/checkout.js`.
-- This is a single-item "Buy Now" checkout, not a multi-item cart — each
-  product links straight to its own checkout. A shared cart across
-  multiple products is a natural next step once this is live and working.
