@@ -318,4 +318,65 @@
     }, { threshold: 0.5 });
     io.observe(el);
   });
+
+  /* Concepts carousel — scroll-snap slider with prev/next buttons and a
+     gentle autoplay that pauses as soon as someone touches it. */
+  document.querySelectorAll(".concept-carousel").forEach(function (carousel) {
+    var track = carousel.querySelector(".concept-track");
+    var prevBtn = carousel.querySelector(".carousel-prev");
+    var nextBtn = carousel.querySelector(".carousel-next");
+    if (!track) return;
+    var slides = Array.prototype.slice.call(track.children);
+    if (!slides.length) return;
+
+    function slideStep() {
+      var style = window.getComputedStyle(track);
+      var gap = parseFloat(style.columnGap || style.gap || "0") || 0;
+      return slides[0].getBoundingClientRect().width + gap;
+    }
+
+    function atEnd() {
+      return track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+    }
+
+    function updateButtons() {
+      if (!prevBtn || !nextBtn) return;
+      prevBtn.disabled = track.scrollLeft <= 4;
+      nextBtn.disabled = atEnd();
+    }
+
+    function go(dir) {
+      track.scrollBy({ left: dir * slideStep(), behavior: "smooth" });
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", function () { go(-1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { go(1); });
+    track.addEventListener("scroll", updateButtons, { passive: true });
+    updateButtons();
+
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || slides.length < 2) return;
+
+    var timer = null;
+    function stopAutoplay() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+    function startAutoplay() {
+      stopAutoplay();
+      timer = setInterval(function () {
+        if (atEnd()) {
+          track.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          go(1);
+        }
+      }, 5000);
+    }
+
+    startAutoplay();
+    ["pointerdown", "focusin", "mouseenter"].forEach(function (evt) {
+      carousel.addEventListener(evt, stopAutoplay);
+    });
+    carousel.addEventListener("mouseleave", startAutoplay);
+  });
 })();

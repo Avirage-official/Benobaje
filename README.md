@@ -11,7 +11,6 @@ index.html            Homepage — hero, client marquee, selected work, statemen
 concepts.html         Concept index — original ideas ahead of their briefs
 concepts/concept-01.html    Concept 001 — Velocity vs. Coherence (on time as a brand attribute)
 concepts/concept-02.html    Concept 002 — The Quiet Signal (proximity over scale)
-concepts/concept-03.html    Concept 003 — detail page
 work.html             Case study index
 work/remy-martin.html       Rémy Martin — 1738 Accord Royal (2022)
 work/senter-festival.html   Senter Festival, Sri Lanka (2025)
@@ -64,9 +63,6 @@ no code changes needed.
 | `assets/img/concepts/concept-02-storyboard-02.jpg` | Concept 002 — Case Study storyboard, frame 2 "Answer Where the Doubt Lives" | 4:3 |
 | `assets/img/concepts/concept-02-storyboard-03.jpg` | Concept 002 — Case Study storyboard, frame 3 "Loyalty Math, Made Honest" | 4:3 |
 | `assets/img/concepts/concept-02-storyboard-04.jpg` | Concept 002 — Case Study storyboard, frame 4 "The Follow-Up Film" | 4:3 |
-| `assets/img/concepts/concept-03.jpg` | Concept 003 — index card + detail hero | Landscape 16:9 |
-| `assets/img/concepts/concept-03-a.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
-| `assets/img/concepts/concept-03-b.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
 
 Keep image files under ~500 KB each where possible (export at quality ~80).
 
