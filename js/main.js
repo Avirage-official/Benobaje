@@ -288,4 +288,34 @@
       }
     });
   });
+
+  /* Concept 002 deck — a decaying stat counts down once, on first view,
+     while its "holds" counterpart next to it deliberately never moves. */
+  document.querySelectorAll(".vdeck-stat-num[data-count-to]").forEach(function (el) {
+    var from = parseInt(el.getAttribute("data-count-from"), 10);
+    var to = parseInt(el.getAttribute("data-count-to"), 10);
+    var suffix = el.getAttribute("data-suffix") || "";
+    if (!("IntersectionObserver" in window)) {
+      el.textContent = to + suffix;
+      return;
+    }
+    var done = false;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting || done) return;
+        done = true;
+        io.disconnect();
+        var start = null;
+        var durationMs = 1200;
+        function step(ts) {
+          if (start === null) start = ts;
+          var t = Math.min((ts - start) / durationMs, 1);
+          el.textContent = Math.round(from + (to - from) * t) + suffix;
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+    io.observe(el);
+  });
 })();
