@@ -57,6 +57,13 @@ no code changes needed.
 | `assets/img/concepts/velocity-deck-bridge.jpg` | Concept 001 — Visual Direction Deck, "The Bridge" imagery-style tile | Landscape 4:3, ~1600×1200. A real, warm-lit, candid (not posed) photo of an older and younger person's hands both near a poured glass, mid-conversation |
 | `assets/img/concepts/velocity-deck-packaging.jpg` | Concept 001 — Visual Direction Deck, sample execution | Square 1:1 or portrait, ~1600px+. A mocked Instagram post or product packaging shot — bottle/label with the drip-cycle motif subtly integrated, gold/brown palette, one small royal-blue accent (foil stamp or light reflection), modern serif logotype |
 | `assets/img/concepts/concept-02.jpg` | Concept 002 — index card + detail hero | Landscape 16:9 |
+| `assets/img/concepts/concept-02-marriott-hero.jpg` | Concept 002 — Case Study, "The Business" | Landscape 16:9, ~2400px wide. A real Marriott Bonvoy campaign still or property shot |
+| `assets/img/concepts/concept-02-conversations.jpg` | Concept 002 — Case Study, "Online Conversations" | Landscape 16:9 or 4:3. A real screenshot of a Bonvoy status/points forum thread |
+| `assets/img/concepts/concept-02-competitors.jpg` | Concept 002 — Case Study, "Competitors & Their Comments" | Landscape 16:9 or 4:3. A real screenshot of a Marriott-vs-Hilton comparison thread |
+| `assets/img/concepts/concept-02-storyboard-01.jpg` | Concept 002 — Case Study storyboard, frame 1 "Show the Fix, Not the Feeling" | 4:3 |
+| `assets/img/concepts/concept-02-storyboard-02.jpg` | Concept 002 — Case Study storyboard, frame 2 "Answer Where the Doubt Lives" | 4:3 |
+| `assets/img/concepts/concept-02-storyboard-03.jpg` | Concept 002 — Case Study storyboard, frame 3 "Loyalty Math, Made Honest" | 4:3 |
+| `assets/img/concepts/concept-02-storyboard-04.jpg` | Concept 002 — Case Study storyboard, frame 4 "The Follow-Up Film" | 4:3 |
 | `assets/img/concepts/concept-03.jpg` | Concept 003 — index card + detail hero | Landscape 16:9 |
 | `assets/img/concepts/concept-03-a.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
 | `assets/img/concepts/concept-03-b.jpg` | Concept 003 — What It Looks Like | Landscape 16:9 |
