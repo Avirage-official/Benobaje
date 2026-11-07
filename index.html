@@ -3,256 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ben Obaje — Creative Producer</title>
-  <meta name="description" content="Ben Obaje is a creative producer working across culture, brands and live experience — Singapore, Australia, New Zealand and Sri Lanka.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23a8501d'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23efeae1' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+  <title>AfroJunior — Music · DJ · Events · Creative</title>
+  <meta name="description" content="AfroJunior — producer, DJ, festival &amp; event producer and creative director. Singapore, working worldwide.">
+  <meta name="theme-color" content="#0e0d0c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230e0d0c'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%23ff4d1f'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
 </head>
-<body>
+<body class="is-loading">
   <div class="grain" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a class="wordmark" href="index.html">Ben Obaje<span class="dot">.</span></a>
-      <nav aria-label="Main">
-        <ul class="nav-links">
-          <li><a href="work.html">Work</a></li>
-          <li><a href="music.html">Music</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="menu-btn" aria-expanded="false" aria-label="Menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-    </div>
+  <!-- ============================================ header -->
+  <header class="hd">
+    <a class="hd-mark" href="index.html" aria-label="AfroJunior — home">AFRO<span>JUNIOR</span></a>
+    <nav class="hd-nav" aria-label="Main">
+      <a href="music.html">Music</a>
+      <a href="#dj">DJ</a>
+      <a href="#events">Events</a>
+      <a href="creative.html">Creative</a>
+    </nav>
+    <p class="hd-meta mono"><span class="dot-live"></span>SG <span data-clock>--:--</span></p>
+    <a class="hd-book mono" href="#book">Book</a>
   </header>
 
-  <div class="nav-overlay">
-    <ul>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-
   <main>
-    <!-- ============================================== hero -->
-    <section class="hero">
-      <div class="container">
-        <p class="label hero-eyebrow reveal">Creative Producer — Singapore</p>
-        <h1 class="hero-title">
-          <span class="mask"><span class="line">Ben</span></span>
-          <span class="mask"><span class="line line--indent">Obaje<span class="dot">.</span></span></span>
-        </h1>
-        <p class="hero-tag reveal" data-delay="2">
-          Culture &middot; Brands &middot; Live Experience —
-          <em>insight into ideas that move audiences.</em>
-        </p>
-        <p class="hero-resume reveal" data-delay="2">
-          Six-plus years in business &amp; data analysis (DBS Bank, Maximo, Uniting Church Queensland), paired with hands-on creative production across music, nightlife and live events in Singapore, Australia, New Zealand and Sri Lanka — <em>15+ brands and campaigns shaped since.</em>
-        </p>
-        <ul class="hero-facts reveal" data-delay="3">
-          <li><span class="n">6<sup>+</sup></span>Years, analysis</li>
-          <li><span class="n">15<sup>+</sup></span>Campaigns</li>
-          <li><span class="n">4</span>Countries</li>
-        </ul>
-        <div class="hero-visual">
-          <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
-            <defs>
-              <path id="badge-circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/>
-            </defs>
-            <circle cx="100" cy="100" r="98" fill="#efeae1" stroke="#171310" stroke-width="1"/>
-            <circle cx="100" cy="100" r="64" fill="none" stroke="rgba(23,19,16,0.25)" stroke-width="1"/>
-            <text font-size="14" letter-spacing="2" fill="currentColor" font-family="Inter, sans-serif" font-weight="600">
-              <textPath href="#badge-circ" textLength="484" lengthAdjust="spacingAndGlyphs">CULTURE ✳ BRANDS ✳ LIVE EXPERIENCE ✳ SINGAPORE ✳&#160;</textPath>
-            </text>
-            <text x="100" y="121" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="60" fill="#a8501d">B</text>
-          </svg>
-          <figure class="media media--hero reveal" data-delay="3" data-file="assets/img/hero.jpg">
-            <img src="assets/img/hero.jpg" alt="Ben Obaje — hero still" class="crop-top" loading="eager">
-          </figure>
-        </div>
-        <a class="scroll-cue" href="#work">Selected Work <span class="tick">↓</span></a>
-      </div>
+    <!-- ============================================ hero -->
+    <section class="hero" aria-label="AfroJunior">
+      <h1 class="hero-word" aria-label="AfroJunior">
+        <span class="row row--a" aria-hidden="true"><span class="ch">A</span><span class="ch">F</span><span class="ch">R</span><span class="ch">O</span></span>
+        <span class="row row--b" aria-hidden="true"><span class="ch">J</span><span class="ch">U</span><span class="ch">N</span><span class="ch">I</span><span class="ch">O</span><span class="ch">R</span></span>
+      </h1>
 
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>Rémy Martin</span><span>Netflix</span><span>Nothing</span><span>Facebook</span><span>MightyJaxx</span><span>Razer</span><span>DBS Bank</span><span>Hard Rock Cafe</span><span>Marquee</span><span>Specsavers</span><span>Rémy Martin</span><span>Netflix</span><span>Nothing</span><span>Facebook</span><span>MightyJaxx</span><span>Razer</span><span>DBS Bank</span><span>Hard Rock Cafe</span><span>Marquee</span><span>Specsavers</span>
-        </div>
+      <figure class="hero-photo">
+        <img src="assets/img/hero.jpg" alt="AfroJunior, seated in a doorway" loading="eager">
+      </figure>
+
+      <ul class="hero-index mono" aria-label="Disciplines">
+        <li><span>01</span>Producer</li>
+        <li><span>02</span>DJ</li>
+        <li><span>03</span>Events</li>
+        <li><span>04</span>Creative Dir.</li>
+      </ul>
+
+      <p class="hero-foot mono">
+        <span>Afrobeats · Amapiano · Hip-Hop · R&amp;B</span>
+        <span>SG — AU — NZ — LK</span>
+        <a href="#roles">Scroll ↓</a>
+      </p>
+    </section>
+
+    <!-- ============================================ roles -->
+    <section class="roles" id="roles" aria-label="What I do">
+      <a class="role" id="music" href="music.html" data-media="assets/img/hero.jpg">
+        <span class="role-n mono">01</span>
+        <span class="role-t">Music</span>
+        <span class="role-d mono">Producer · Releases · Collabs</span>
+        <span class="role-go mono">Enter →</span>
+      </a>
+      <a class="role" id="dj" href="music.html" data-media="assets/video/showreel.mp4">
+        <span class="role-n mono">02</span>
+        <span class="role-t">DJ</span>
+        <span class="role-d mono">Clubs · Festivals · Private</span>
+        <span class="role-go mono">Enter →</span>
+      </a>
+      <a class="role" id="events" href="work/senter-festival.html" data-media="assets/img/work/senter-hero.jpg">
+        <span class="role-n mono">03</span>
+        <span class="role-t">Events</span>
+        <span class="role-d mono">Festival · Production · Planning</span>
+        <span class="role-go mono">Enter →</span>
+      </a>
+      <a class="role" id="creative" href="creative.html" data-media="assets/img/work/remy-hero.jpg">
+        <span class="role-n mono">04</span>
+        <span class="role-t">Creative</span>
+        <span class="role-d mono">Direction · Brands · Campaigns</span>
+        <span class="role-go mono">Enter →</span>
+      </a>
+    </section>
+
+    <!-- floating preview that follows the cursor over .role rows -->
+    <div class="peek" aria-hidden="true"><div class="peek-in"></div></div>
+
+    <!-- ============================================ rooms ticker -->
+    <section class="ticker" aria-label="Rooms and partners">
+      <div class="ticker-track">
+        <span>Marquee</span><i>✺</i><span>Tanjong Beach Club</span><i>✺</i><span>Hard Rock Cafe</span><i>✺</i><span>Senter Festival</span><i>✺</i><span>Rémy Martin</span><i>✺</i><span>Nothing</span><i>✺</i><span>Hazel</span><i>✺</i><span>GetJuice</span><i>✺</i>
+        <span>Marquee</span><i>✺</i><span>Tanjong Beach Club</span><i>✺</i><span>Hard Rock Cafe</span><i>✺</i><span>Senter Festival</span><i>✺</i><span>Rémy Martin</span><i>✺</i><span>Nothing</span><i>✺</i><span>Hazel</span><i>✺</i><span>GetJuice</span><i>✺</i>
       </div>
     </section>
 
-    <!-- ============================================== concepts carousel -->
-    <section class="section" id="concepts">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Concepts</h2>
-          <a class="arrow-link" href="concepts.html">All concepts <span class="arr">→</span></a>
-        </div>
-
-        <div class="concept-carousel reveal">
-          <div class="concept-track" role="region" aria-label="Concepts carousel" tabindex="0">
-            <a class="concept-slide" href="concepts/concept-01.html">
-              <span class="cnum">001</span>
-              <figure class="media media--wide concept-media" data-file="assets/img/concepts/concept-01.jpg">
-                <img src="assets/img/concepts/concept-01.jpg" alt="Velocity vs. Coherence — concept visual" loading="lazy">
-              </figure>
-              <div class="concept-slide-body">
-                <p class="label">Strategic Perspective · Sonic Identity</p>
-                <h3>Velocity vs. Coherence</h3>
-                <p>Pace as a brand personality — proven through Whis &amp; Key, a whiskey whose identity is built around a single drip, quickening from dawn to a full pour by evening.</p>
-                <span class="arrow-link concept-more">Read the concept <span class="arr">→</span></span>
-              </div>
-            </a>
-
-            <a class="concept-slide" href="concepts/concept-02.html">
-              <span class="cnum">002</span>
-              <figure class="media media--wide concept-media" data-file="assets/img/concepts/concept-02.jpg">
-                <img src="assets/img/concepts/concept-02.jpg" alt="The Quiet Signal — concept visual" loading="lazy">
-              </figure>
-              <div class="concept-slide-body">
-                <p class="label">Strategic Perspective · Signal Intelligence</p>
-                <h3>The Quiet Signal</h3>
-                <p>Proximity beats scale — proven through Glossier, then tested live as a research-driven case study against Marriott Bonvoy's own data, comments and competitors.</p>
-                <span class="arrow-link concept-more">Read the concept <span class="arr">→</span></span>
-              </div>
-            </a>
-          </div>
-
-          <div class="concept-carousel-controls">
-            <button type="button" class="carousel-btn carousel-prev" aria-label="Previous concept">←</button>
-            <button type="button" class="carousel-btn carousel-next" aria-label="Next concept">→</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================== selected work -->
-    <section class="section" id="work">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Selected Work</h2>
-          <a class="arrow-link" href="work.html">All case studies <span class="arr">→</span></a>
-        </div>
-
-        <div class="work-list">
-          <a class="work-row reveal" href="work/remy-martin.html">
-            <span class="num">01</span>
-            <figure class="media thumb" data-file="assets/img/work/remy-hero.jpg">
-              <img src="assets/img/work/remy-hero.jpg" alt="Rémy Martin 1738 Accord Royal campaign" loading="lazy">
-            </figure>
-            <h3>Rémy Martin — 1738 Accord Royal
-              <span class="sub">Campaign Strategy · Singapore Launch</span>
-            </h3>
-            <span class="year">2022</span>
-            <span class="go">→</span>
-          </a>
-
-          <a class="work-row reveal" href="work/senter-festival.html">
-            <span class="num">02</span>
-            <figure class="media thumb" data-file="assets/img/work/senter-hero.jpg">
-              <img src="assets/img/work/senter-hero.jpg" alt="Senter Festival crowd, Sri Lanka" loading="lazy">
-            </figure>
-            <h3>Senter Festival
-              <span class="sub">Content Strategy · Festival Production · Sri Lanka</span>
-            </h3>
-            <span class="year">2025</span>
-            <span class="go">→</span>
-          </a>
-
-          <a class="work-row reveal" href="work/nothing-phone.html">
-            <span class="num">03</span>
-            <figure class="media thumb" data-file="assets/img/work/nothing-hero.jpg">
-              <img src="assets/img/work/nothing-hero.jpg" alt="Nothing Phone (1) Singapore launch" loading="lazy">
-            </figure>
-            <h3>Nothing — Phone (1) Launch
-              <span class="sub">Event Production · Brand Experience</span>
-            </h3>
-            <span class="year">2022</span>
-            <span class="go">→</span>
-          </a>
-
-          <a class="work-row reveal" href="work/mightyjaxx-flexx.html">
-            <span class="num">04</span>
-            <figure class="media thumb" data-file="assets/img/work/flexx-hero.jpg">
-              <img src="assets/img/work/flexx-hero.jpg" alt="MightyJaxx FLEXX documentary series" loading="lazy">
-            </figure>
-            <h3>MightyJaxx — FLEXX
-              <span class="sub">Documentary Host · Cultural Storytelling</span>
-            </h3>
-            <span class="year">2024</span>
-            <span class="go">→</span>
-          </a>
-
-          <a class="work-row reveal" href="work/wahbanana.html">
-            <span class="num">05</span>
-            <figure class="media thumb" data-file="assets/img/work/wahbanana-hero.jpg">
-              <img src="assets/img/work/wahbanana-hero.jpg" alt="Wahbanana — platform-native comedy content" loading="lazy">
-            </figure>
-            <h3>Wahbanana
-              <span class="sub">Comedy Content · Platform-Native Strategy</span>
-            </h3>
-            <span class="year">2023–24</span>
-            <span class="go">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================== showreel -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Showreel</h2>
-          <p class="label">The work above, in one sitting</p>
-        </div>
-
-        <figure class="media media--hero reveal" data-file="assets/video/showreel.mp4">
-          <video autoplay muted loop playsinline preload="auto" poster="assets/img/showreel-poster.jpg" aria-label="Showreel — a silent, looping summary of the work above">
-            <source src="assets/video/showreel.mp4" type="video/mp4">
-          </video>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ============================================== statement -->
-    <section class="statement">
-      <div class="container">
-        <p class="reveal">
-          Six years of business analysis taught me how organisations actually work.
-          Music, nightlife and community scenes across four countries taught me what
-          audiences actually care about. The work lives where those meet —
-          <em>cultural instinct, sharpened by data.</em>
-        </p>
-        <a class="arrow-link reveal" href="about.html">The full story <span class="arr">→</span></a>
+    <!-- ============================================ one line -->
+    <section class="line" aria-label="Statement">
+      <p class="line-txt">
+        <span class="w">From</span> <span class="w">the</span> <span class="w">studio</span>
+        <span class="w">to</span> <span class="w">the</span> <span class="w"><em>stage</em></span>
+        <span class="w">—</span> <span class="w">and</span> <span class="w">everything</span>
+        <span class="w">between.</span>
+      </p>
+      <div class="eq" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
     </section>
   </main>
 
-  <!-- ============================================== footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-cta">
-        <p class="label">Contact</p>
-        <h2>Let’s make something the culture <em>actually cares about.</em></h2>
-        <a class="footer-mail" href="mailto:obajews@hotmail.com">obajews@hotmail.com</a>
-      </div>
-      <div class="footer-grid">
-        <ul class="footer-nav">
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="music.html">Music</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="https://linkedin.com/in/benobaje" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-        <p class="footer-fine">Made in Singapore — soundtrack by AFROJUNIOR<br>© <span data-year>2026</span> Ben Obaje · SG / AU / NZ / LK</p>
-      </div>
+  <!-- ============================================ book -->
+  <footer class="book" id="book">
+    <p class="mono book-lbl">Bookings &amp; enquiries</p>
+    <a class="book-big" href="mailto:obajews@hotmail.com?subject=Booking%20—%20AfroJunior">Book<br><em>AfroJunior</em></a>
+    <div class="book-chips mono">
+      <a href="mailto:obajews@hotmail.com?subject=Music%20—%20Production%20enquiry">Production</a>
+      <a href="mailto:obajews@hotmail.com?subject=DJ%20booking">DJ set</a>
+      <a href="mailto:obajews@hotmail.com?subject=Event%20%2F%20festival%20production">Event / Festival</a>
+      <a href="mailto:obajews@hotmail.com?subject=Creative%20direction">Creative direction</a>
+    </div>
+    <div class="book-base mono">
+      <span>© <span data-year>2026</span> AfroJunior</span>
+      <span><a href="https://linkedin.com/in/benobaje" target="_blank" rel="noopener">LinkedIn</a> · <a href="about.html">About</a></span>
+      <span>Singapore</span>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

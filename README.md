@@ -7,7 +7,9 @@ Pure static HTML/CSS/JS. No build step, no dependencies. Deployable as-is to Git
 ## Structure
 
 ```
-index.html            Homepage — hero, client marquee, selected work, statement
+index.html            AfroJunior hub — hero, four role doors (Music, DJ, Events, Creative), booking
+creative.html         Creative direction — the previous homepage (concepts, selected work, showreel)
+css/home.css, js/home.js   Homepage-only styles and motion
 concepts.html         Concept index — original ideas ahead of their briefs
 concepts/concept-01.html    Concept 001 — Velocity vs. Coherence (on time as a brand attribute)
 concepts/concept-02.html    Concept 002 — The Quiet Signal (proximity over scale)
