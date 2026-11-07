@@ -26,7 +26,13 @@ css/style.css         Full design system
 js/main.js            Nav, scroll reveals, image placeholder handling
 ```
 
-## Image uploads
+## Homepage images
+
+All homepage photos live in `assets/img/home/` — see
+[`assets/img/home/README.md`](assets/img/home/README.md) for the exact file
+names and sizes. Drop a file in and it replaces its fallback automatically.
+
+## Image uploads (other pages)
 
 Every image slot renders a styled placeholder showing the exact file path it
 expects. Drop images at these paths (JPG, sRGB) and they appear automatically —

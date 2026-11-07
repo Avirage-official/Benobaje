@@ -55,21 +55,25 @@
   var peek = document.querySelector(".peek");
   var peekIn = peek && peek.querySelector(".peek-in");
   if (peek && fine) {
-    var cache = {};
     var tx = 0, ty = 0, px = 0, py = 0, running = false;
-    var mediaFor = function (src) {
-      if (!cache[src]) {
-        var el;
-        if (/\.mp4$/.test(src)) {
-          el = document.createElement("video");
-          el.muted = true; el.loop = true; el.playsInline = true; el.preload = "metadata";
-        } else {
-          el = document.createElement("img"); el.alt = "";
-        }
-        el.src = src;
-        cache[src] = el;
+    /* data-media lists candidates separated by "|": the first file that
+       exists wins, so dropping a file into assets/img/home/ replaces the
+       fallback with no code change. */
+    var resolve = function (list, done, i) {
+      i = i || 0;
+      if (i >= list.length) return;
+      var src = list[i], next = function () { resolve(list, done, i + 1); };
+      var el;
+      if (/\.mp4$/.test(src)) {
+        el = document.createElement("video");
+        el.muted = true; el.loop = true; el.playsInline = true; el.preload = "metadata";
+        el.addEventListener("loadedmetadata", function () { done(el); }, { once: true });
+      } else {
+        el = document.createElement("img"); el.alt = "";
+        el.addEventListener("load", function () { done(el); }, { once: true });
       }
-      return cache[src];
+      el.addEventListener("error", next, { once: true });
+      el.src = src;
     };
     var loop = function () {
       px += (tx - px) * 0.14; py += (ty - py) * 0.14;
@@ -78,10 +82,12 @@
       if (running) requestAnimationFrame(loop);
     };
     document.querySelectorAll(".role").forEach(function (row) {
+      resolve(row.getAttribute("data-media").split("|"), function (el) { row._media = el; });
       row.addEventListener("mouseenter", function (e) {
-        var m = mediaFor(row.getAttribute("data-media"));
-        peekIn.innerHTML = ""; peekIn.appendChild(m);
-        if (m.play) { var p = m.play(); if (p && p.catch) p.catch(function () {}); }
+        var m = row._media;
+        peekIn.innerHTML = "";
+        if (m) peekIn.appendChild(m);
+        if (m && m.play) { var p = m.play(); if (p && p.catch) p.catch(function () {}); }
         tx = px = e.clientX; ty = py = e.clientY;
         peek.classList.add("is-on");
         if (!running) { running = true; requestAnimationFrame(loop); }
