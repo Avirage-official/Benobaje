@@ -116,11 +116,14 @@
     });
   });
 
-  /* Gallery: picks up gallery-01.jpg, gallery-02.jpg … until one is missing */
-  var gal = document.querySelector(".gal[data-gallery]");
+  /* Gallery. Any photo uploaded to the gallery folder shows up, whatever
+     its name (read from GitHub's public folder listing, sorted by name).
+     If that can't be reached it falls back to gallery-01.jpg, -02 … and
+     finally to the homepage photos. */
+  var gal = document.querySelector(".gal[data-folder]");
   var photos = [];
   if (gal) {
-    var base = gal.getAttribute("data-gallery");
+    var folder = gal.getAttribute("data-folder");
     var add = function (src) {
       var i = photos.length;
       photos.push(src);
@@ -134,16 +137,37 @@
       gal.appendChild(b);
       watch(b);
     };
+    var useFallback = function () {
+      (gal.getAttribute("data-fallback") || "").split("|").forEach(function (s) { if (s) add(s); });
+    };
     var probe = function (n) {
-      var num = (n < 10 ? "0" : "") + n;
+      var base = folder + "/gallery-", num = (n < 10 ? "0" : "") + n;
       resolve([base + num + ".jpg", base + num + ".jpeg", base + num + ".png", base + num + ".webp"], function (img) {
         if (img) { add(img.src); probe(n + 1); }
-        else if (n === 1) {
-          (gal.getAttribute("data-fallback") || "").split("|").forEach(function (s) { if (s) add(s); });
-        }
+        else if (n === 1) useFallback();
       });
     };
-    probe(1);
+    var fromList = function (names) {
+      var pics = names.filter(function (n) { return /\.(jpe?g|png|webp|avif|gif)$/i.test(n); })
+        .sort(function (a, b) { return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }); });
+      if (!pics.length) return false;
+      pics.forEach(function (n) { add(folder + "/" + encodeURIComponent(n)); });
+      return true;
+    };
+    var key = "aj-gallery:" + folder, cached = null;
+    try { cached = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
+    if (cached && fromList(cached)) {
+      /* served from this visit's cache */
+    } else if (window.fetch && gal.getAttribute("data-repo")) {
+      fetch("https://api.github.com/repos/" + gal.getAttribute("data-repo") + "/contents/" + folder)
+        .then(function (r) { if (!r.ok) throw r.status; return r.json(); })
+        .then(function (items) {
+          var names = items.filter(function (it) { return it.type === "file"; }).map(function (it) { return it.name; });
+          try { sessionStorage.setItem(key, JSON.stringify(names)); } catch (e) {}
+          if (!fromList(names)) probe(1);
+        })
+        .catch(function () { probe(1); });
+    } else probe(1);
   }
 
   /* Lightbox */
