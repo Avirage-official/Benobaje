@@ -163,8 +163,10 @@
         .then(function (r) { if (!r.ok) throw r.status; return r.json(); })
         .then(function (items) {
           var names = items.filter(function (it) { return it.type === "file"; }).map(function (it) { return it.name; });
-          try { sessionStorage.setItem(key, JSON.stringify(names)); } catch (e) {}
-          if (!fromList(names)) probe(1);
+          var ok = fromList(names);
+          /* only remember a list that actually has photos, so new uploads show up */
+          if (ok) { try { sessionStorage.setItem(key, JSON.stringify(names)); } catch (e) {} }
+          else probe(1);
         })
         .catch(function () { probe(1); });
     } else probe(1);
