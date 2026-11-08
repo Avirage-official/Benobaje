@@ -1,0 +1,104 @@
+/* AFROJUNIOR — DJ page. Builds on home.css + music.css. */
+
+/* ============================================ hero */
+.dj-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 110px var(--pad) 0;
+  overflow: hidden;
+}
+.dj-title { font-size: min(30vw, 42vh); line-height: 0.8; }
+.dj-title .row { display: flex; }
+
+.dj-status {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr minmax(260px, 420px);
+  align-items: end; gap: var(--pad);
+  margin-top: 3vh; padding: 18px 0 22px;
+  border-top: 1px solid var(--rule);
+}
+.dj-live { margin: 0; display: flex; align-items: center; gap: 10px; }
+.rec { width: 9px; height: 9px; border-radius: 50%; background: var(--hot); animation: pulse 1.2s ease-in-out infinite; }
+.dj-meter-top { display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--dim); }
+.dj-meter-top b { color: var(--bone); font-weight: 500; }
+.dj-meter-bar { height: 6px; background: var(--rule); overflow: hidden; }
+.dj-meter-bar i {
+  display: block; height: 100%; width: var(--p, 0%);
+  background: var(--hot);
+  transition: width 1.6s var(--ease-out);
+}
+
+/* waveform strip behind the title */
+.wave {
+  position: absolute; left: 0; right: 0; bottom: 34%;
+  z-index: 0;
+  display: flex; align-items: center; gap: 3px;
+  height: 22vh; padding: 0 var(--pad);
+  opacity: .22; pointer-events: none;
+}
+.wave i {
+  flex: 1; min-width: 2px;
+  height: 18%;
+  background: var(--bone);
+  border-radius: 2px;
+  animation: eq var(--d, 1.2s) ease-in-out infinite alternate;
+  animation-delay: var(--dl, 0s);
+}
+.wave i:nth-child(7n) { background: var(--hot); }
+.dj-title { position: relative; z-index: 1; }
+
+/* ============================================ why */
+.dj-why .m-hey { font-weight: 700; font-variation-settings: "wdth" 75; text-transform: uppercase; letter-spacing: -0.03em; line-height: .9; }
+
+/* ============================================ setlist */
+.dj-list { padding: 16vh 0 0; }
+.track { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.track-row {
+  display: grid; grid-template-columns: 70px 44px 1fr auto;
+  align-items: baseline; gap: var(--pad);
+  padding: 22px var(--pad);
+  border-bottom: 1px solid var(--rule);
+}
+.t-n { color: var(--dim); }
+.t-st { font-size: 22px; color: var(--dim); }
+.t-t {
+  font-weight: 800; font-variation-settings: "wdth" 62;
+  font-size: clamp(30px, 4.6vw, 80px); line-height: .9;
+  text-transform: uppercase; letter-spacing: -0.02em;
+  color: var(--dim);
+}
+.t-d { color: var(--dim); text-align: right; }
+.is-done .t-t { color: var(--bone); text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: var(--hot); }
+.is-done .t-st { color: var(--bone); }
+.is-now .t-t, .is-now .t-st { color: var(--hot); }
+.is-now .t-st { display: inline-block; animation: spin 2.4s linear infinite; }
+.is-now .t-d { color: var(--bone); }
+
+/* ============================================ notify */
+.dj-notify {
+  padding: 16vh var(--pad) 4vh;
+}
+.dj-notify > p { margin: 0 0 18px; color: var(--dim); }
+
+/* 4-up booking grid */
+.hire-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.hire-grid--4 .hire:not(:nth-child(3n+1)) { border-left: 0; }
+.hire-grid--4 .hire + .hire { border-left: 1px solid var(--rule); }
+
+/* ============================================ small screens */
+@media (max-width: 860px) {
+  .dj-hero { min-height: 0; padding-top: 130px; }
+  .dj-title { font-size: 34vw; }
+  .dj-status { grid-template-columns: 1fr; }
+  .wave { bottom: 30%; height: 12vh; }
+  .track-row { grid-template-columns: 30px 28px 1fr; row-gap: 6px; padding: 18px var(--pad); }
+  .t-d { grid-column: 3; text-align: left; }
+  .hire-grid--4 { grid-template-columns: 1fr 1fr; }
+  .hire-grid--4 .hire + .hire { border-left: 0; }
+  .hire-grid--4 .hire:nth-child(even) { border-left: 1px solid var(--rule); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave i { height: 50%; }
+}

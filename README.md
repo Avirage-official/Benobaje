@@ -20,6 +20,7 @@ work/nothing-phone.html     Nothing — Phone (1) Launch (2022)
 work/mightyjaxx-flexx.html  MightyJaxx — FLEXX (2024)
 work/wahbanana.html         Wahbanana — Platform-Native Comedy (2023–24)
 about.html            Analyst-to-strategist story, expertise, toolkit
+dj.html               DJ (Soundcheck): status meter, setlist, gallery, booking (css/dj.css, js/dj.js + js/music.js)
 music.html            Music: hero sleeve, Spotify + YouTube, bio, stats, venues, gallery, hire (css/music.css, js/music.js)
 contact.html          Contact
 css/style.css         Full design system
@@ -37,6 +38,13 @@ names and sizes. Drop a file in and it replaces its fallback automatically.
 Music page photos (record sleeve, venue hovers, gallery) live in
 `assets/img/music/`. See [`assets/img/music/README.md`](assets/img/music/README.md).
 Gallery photos go in `assets/img/music/gallery/`, with any file names.
+
+## DJ page images
+
+DJ gallery photos go in `assets/img/dj/gallery/`, with any file names.
+
+The Mix 01 progress (72%) and the setlist ticks live in `dj.html`:
+edit `aria-valuenow` on `.dj-meter`, and move a row's `is-done` / `is-now` class.
 
 ## Image uploads (other pages)
 
