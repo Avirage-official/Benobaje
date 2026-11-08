@@ -24,13 +24,10 @@ Hovering a venue name shows its photo following the cursor. No photo = no hover 
 
 Portrait 4:5 · 1200×1500 works best.
 
-## Camera roll (gallery, add as many as you like)
+## Camera roll (gallery)
 
-Name them in order: `gallery-01.jpg`, `gallery-02.jpg`, `gallery-03.jpg` …
-(.jpg, .jpeg, .png or .webp all work). The page shows every number in a row
-and stops at the first gap, so don't skip numbers. Any shape is fine; the
-grid adapts. Click opens a full-screen viewer.
-
-Until `gallery-01` exists, the gallery shows the homepage photos.
+Upload as many photos as you like into **`assets/img/music/gallery/`**.
+Any file name works; they show in name order. See the README in that folder.
+Until the folder has photos, the gallery shows the homepage photos.
 
 **Export:** sRGB, quality ~80, under ~500 KB each (long edge ~2000px is plenty).

@@ -36,7 +36,7 @@ names and sizes. Drop a file in and it replaces its fallback automatically.
 
 Music page photos (record sleeve, venue hovers, gallery) live in
 `assets/img/music/`. See [`assets/img/music/README.md`](assets/img/music/README.md).
-The gallery picks up `gallery-01.jpg`, `gallery-02.jpg` … automatically.
+Gallery photos go in `assets/img/music/gallery/`, with any file names.
 
 ## Image uploads (other pages)
 
