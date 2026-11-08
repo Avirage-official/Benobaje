@@ -8,7 +8,9 @@ Pure static HTML/CSS/JS. No build step, no dependencies. Deployable as-is to Git
 
 ```
 index.html            AfroJunior hub — hero, four role doors (Music, DJ, Events, Creative), booking
-creative.html         Creative direction — the previous homepage (concepts, selected work, showreel)
+creative.html         Creative (Junior Creative Director): selected work, reel, how I think, toolkit, booking (css/creative.css, js/creative.js)
+work/*.html           Case studies (Rémy Martin, FLEXX, Wahbanana), restyled via css/cs.css
+js/nav.js             Phone menu, shared by every page
 css/home.css, js/home.js   Homepage-only styles and motion
 concepts.html         Concept index — original ideas ahead of their briefs
 concepts/concept-01.html    Concept 001 — Velocity vs. Coherence (on time as a brand attribute)
