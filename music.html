@@ -30,8 +30,19 @@
       <a href="creative.html">Creative</a>
     </nav>
     <p class="hd-meta mono"><span class="dot-live"></span>SG <span data-clock>--:--</span></p>
+    <button class="hd-menu mono" type="button" aria-expanded="false" aria-controls="mnav">Menu</button>
     <a class="hd-book mono" href="#hire">Book</a>
   </header>
+  <nav class="mnav" id="mnav" aria-label="Menu" hidden>
+    <div class="mnav-top"><a class="hd-mark" href="index.html">AFRO<span>JUNIOR</span></a><button class="mnav-x mono" type="button">Close ✕</button></div>
+    <ol>
+      <li><a href="music.html" aria-current="page"><span>01</span>Music</a></li>
+      <li><a href="dj.html"><span>02</span>DJ</a></li>
+      <li><a href="events.html"><span>03</span>Events</a></li>
+      <li><a href="creative.html"><span>04</span>Creative</a></li>
+    </ol>
+    <p class="mnav-foot mono"><a href="mailto:obajews@hotmail.com">obajews@hotmail.com</a><span>Singapore</span></p>
+  </nav>
 
   <main>
     <!-- ============================================ hero: headline + record sleeve -->
@@ -189,5 +200,6 @@
   </div>
 
   <script src="js/music.js"></script>
+  <script src="js/nav.js"></script>
 </body>
 </html>

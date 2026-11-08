@@ -30,8 +30,19 @@
       <a href="creative.html">Creative</a>
     </nav>
     <p class="hd-meta mono"><span class="dot-live"></span>SG <span data-clock>--:--</span></p>
+    <button class="hd-menu mono" type="button" aria-expanded="false" aria-controls="mnav">Menu</button>
     <a class="hd-book mono" href="#book">Book</a>
   </header>
+  <nav class="mnav" id="mnav" aria-label="Menu" hidden>
+    <div class="mnav-top"><a class="hd-mark" href="index.html">AFRO<span>JUNIOR</span></a><button class="mnav-x mono" type="button">Close ✕</button></div>
+    <ol>
+      <li><a href="music.html"><span>01</span>Music</a></li>
+      <li><a href="dj.html"><span>02</span>DJ</a></li>
+      <li><a href="events.html"><span>03</span>Events</a></li>
+      <li><a href="creative.html"><span>04</span>Creative</a></li>
+    </ol>
+    <p class="mnav-foot mono"><a href="mailto:obajews@hotmail.com">obajews@hotmail.com</a><span>Singapore</span></p>
+  </nav>
 
   <main>
     <!-- ============================================ hero -->
@@ -124,11 +135,12 @@
     </div>
     <div class="book-base mono">
       <span>© <span data-year>2026</span> AfroJunior</span>
-      <span><a href="https://linkedin.com/in/benobaje" target="_blank" rel="noopener">LinkedIn</a> · <a href="about.html">About</a></span>
+      <span><a href="https://linkedin.com/in/benobaje" target="_blank" rel="noopener">LinkedIn</a> · <a href="creative.html#think">About</a></span>
       <span>Singapore</span>
     </div>
   </footer>
 
   <script src="js/home.js"></script>
+  <script src="js/nav.js"></script>
 </body>
 </html>
