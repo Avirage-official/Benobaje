@@ -15,11 +15,10 @@ concepts/concept-01.html    Concept 001 — Velocity vs. Coherence (on time as a
 concepts/concept-02.html    Concept 002 — The Quiet Signal (proximity over scale)
 work.html             Case study index
 work/remy-martin.html       Rémy Martin — 1738 Accord Royal (2022)
-work/senter-festival.html   Senter Festival, Sri Lanka (2025)
-work/nothing-phone.html     Nothing — Phone (1) Launch (2022)
 work/mightyjaxx-flexx.html  MightyJaxx — FLEXX (2024)
 work/wahbanana.html         Wahbanana — Platform-Native Comedy (2023–24)
 about.html            Analyst-to-strategist story, expertise, toolkit
+events.html           Events: run sheet, Senter 2026 feature, stats, selected work, gallery, booking (css/events.css, js/events.js + js/music.js)
 dj.html               DJ (Soundcheck): status meter, setlist, gallery, booking (css/dj.css, js/dj.js + js/music.js)
 music.html            Music: hero sleeve, Spotify + YouTube, bio, stats, venues, gallery, hire (css/music.css, js/music.js)
 contact.html          Contact
@@ -38,6 +37,11 @@ names and sizes. Drop a file in and it replaces its fallback automatically.
 Music page photos (record sleeve, venue hovers, gallery) live in
 `assets/img/music/`. See [`assets/img/music/README.md`](assets/img/music/README.md).
 Gallery photos go in `assets/img/music/gallery/`, with any file names.
+
+## Events page images
+
+See [`assets/img/events/README.md`](assets/img/events/README.md). Gallery photos go in
+`assets/img/events/gallery/`, with any file names.
 
 ## DJ page images
 
