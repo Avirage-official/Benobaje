@@ -20,7 +20,7 @@ work/nothing-phone.html     Nothing — Phone (1) Launch (2022)
 work/mightyjaxx-flexx.html  MightyJaxx — FLEXX (2024)
 work/wahbanana.html         Wahbanana — Platform-Native Comedy (2023–24)
 about.html            Analyst-to-strategist story, expertise, toolkit
-music.html            AFROJUNIOR — releases, DJ sets, curated rooms
+music.html            Music: hero sleeve, Spotify + YouTube, bio, stats, venues, gallery, hire (css/music.css, js/music.js)
 contact.html          Contact
 css/style.css         Full design system
 js/main.js            Nav, scroll reveals, image placeholder handling
@@ -31,6 +31,12 @@ js/main.js            Nav, scroll reveals, image placeholder handling
 All homepage photos live in `assets/img/home/` — see
 [`assets/img/home/README.md`](assets/img/home/README.md) for the exact file
 names and sizes. Drop a file in and it replaces its fallback automatically.
+
+## Music page images
+
+Music page photos (record sleeve, venue hovers, gallery) live in
+`assets/img/music/`. See [`assets/img/music/README.md`](assets/img/music/README.md).
+The gallery picks up `gallery-01.jpg`, `gallery-02.jpg` … automatically.
 
 ## Image uploads (other pages)
 
@@ -58,7 +64,6 @@ no code changes needed.
 | `assets/img/work/wahbanana-hero.jpg` | Wahbanana hero + thumbnails | Landscape 16:9, ~2400px wide |
 | `assets/img/work/wahbanana-01.jpg` | Wahbanana — execution | Landscape 16:9 |
 | `assets/img/work/wahbanana-02.jpg` | Wahbanana — execution | Landscape 16:9 |
-| `assets/img/music/afrojunior.jpg` | Music page hero | Landscape, ~2400×1150 |
 | `assets/img/concepts/concept-01.jpg` | Concept 001 — index card + detail hero | Landscape 16:9 |
 | `assets/img/concepts/velocity-deck-key-visual.jpg` | Concept 001 — Visual Direction Deck, key visual | Landscape 21:10, ~2400px wide. A close, warm shot of a single amber whiskey drop mid-fall into a glass, backlit, dark background, one small accent of royal-blue light reflected somewhere (a rim light or blurred blue bokeh) |
 | `assets/img/concepts/velocity-deck-bridge.jpg` | Concept 001 — Visual Direction Deck, "The Bridge" imagery-style tile | Landscape 4:3, ~1600×1200. A real, warm-lit, candid (not posed) photo of an older and younger person's hands both near a poured glass, mid-conversation |

@@ -3,94 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music — AFROJUNIOR · Ben Obaje</title>
-  <meta name="description" content="AFROJUNIOR — Afrobeat, Hip-Hop, R&B and Amapiano. Original releases, DJ sets and curated live experiences across Singapore and Asia-Pacific.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23a8501d'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23efeae1' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+  <title>Music — AfroJunior</title>
+  <meta name="description" content="AfroJunior — Nigerian-born, Singapore-raised producer making Afro House and Afrobeats. Stories you can dance to.">
+  <meta name="theme-color" content="#0e0d0c">
+  <meta property="og:title" content="AfroJunior — Music">
+  <meta property="og:description" content="Naija born. Singapore raised. Afro House &amp; Afrobeats — stories you can dance to.">
+  <meta property="og:image" content="https://benobaje.vercel.app/assets/img/home/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230e0d0c'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%23ff4d1f'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/music.css">
 </head>
-<body>
+<body class="is-loading">
   <div class="grain" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a class="wordmark" href="index.html">Ben Obaje<span class="dot">.</span></a>
-      <nav aria-label="Main">
-        <ul class="nav-links">
-          <li><a href="work.html">Work</a></li>
-          <li><a href="music.html" aria-current="page">Music</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <button class="menu-btn" aria-expanded="false" aria-label="Menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-    </div>
+  <!-- ============================================ header -->
+  <header class="hd">
+    <a class="hd-mark" href="index.html" aria-label="AfroJunior — home">AFRO<span>JUNIOR</span></a>
+    <nav class="hd-nav" aria-label="Main">
+      <a href="music.html" aria-current="page">Music</a>
+      <a href="index.html#dj">DJ</a>
+      <a href="index.html#events">Events</a>
+      <a href="creative.html">Creative</a>
+    </nav>
+    <p class="hd-meta mono"><span class="dot-live"></span>SG <span data-clock>--:--</span></p>
+    <a class="hd-book mono" href="#hire">Book</a>
   </header>
 
-  <div class="nav-overlay">
-    <ul>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <p class="label reveal">Music · AFROJUNIOR</p>
-        <h1 class="reveal" data-delay="1">The strategy works because I’m <em>inside the culture</em> — not observing it.</h1>
+    <!-- ============================================ hero: headline + record sleeve -->
+    <section class="m-hero">
+      <div class="m-hero-copy">
+        <p class="mono m-kicker"><span>01</span> Music — Producer · Artist</p>
+        <h1 class="m-title" aria-label="Naija born. SG raised.">
+          <span class="row" aria-hidden="true"><span class="ch">N</span><span class="ch">a</span><span class="ch">i</span><span class="ch">j</span><span class="ch">a</span>&nbsp;<span class="ch">b</span><span class="ch">o</span><span class="ch">r</span><span class="ch">n</span><span class="ch">.</span></span>
+          <span class="row row--o" aria-hidden="true"><span class="ch">S</span><span class="ch">G</span>&nbsp;<span class="ch">r</span><span class="ch">a</span><span class="ch">i</span><span class="ch">s</span><span class="ch">e</span><span class="ch">d</span><span class="ch">.</span></span>
+        </h1>
+        <p class="m-sub">I make songs you can dance to <em>and</em> feel something. Multitasking.</p>
+        <a class="m-play mono" href="#listen"><span class="m-play-ic" aria-hidden="true"></span>Press play</a>
+      </div>
+
+      <div class="sleeve" aria-hidden="true">
+        <div class="vinyl">
+          <div class="vinyl-label">
+            <img src="assets/img/music/cover.jpg" data-fallback="assets/img/home/role-music.jpg" alt="">
+          </div>
+        </div>
+        <figure class="sleeve-art">
+          <img src="assets/img/music/cover.jpg" data-fallback="assets/img/home/role-music.jpg" alt="">
+          <figcaption class="mono"><span>AFROJUNIOR</span><span>Side A — Afro House</span></figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section container">
-      <figure class="media media--hero reveal" data-file="assets/img/music/afrojunior.jpg">
-        <img src="assets/img/music/afrojunior.jpg" alt="AFROJUNIOR performing live" loading="lazy">
-      </figure>
+    <!-- ============================================ genre ticker -->
+    <section class="ticker" aria-label="Genres">
+      <div class="ticker-track">
+        <span>Afro House</span><i>✺</i><span>Afrobeats</span><i>✺</i><span>Hip-Hop</span><i>✺</i><span>Stories you can dance to</span><i>✺</i>
+        <span>Afro House</span><i>✺</i><span>Afrobeats</span><i>✺</i><span>Hip-Hop</span><i>✺</i><span>Stories you can dance to</span><i>✺</i>
+      </div>
+    </section>
 
-      <div class="about-grid" style="margin-top: var(--space-3);">
-        <div class="about-copy">
-          <p class="lede reveal">AFROJUNIOR is the artist side of the practice — original releases across Afrobeat, Hip-Hop, R&amp;B and Amapiano, collaborating with artists across Asia-Pacific.</p>
-          <p class="reveal">Alongside the releases: curating and producing live experiences across Singapore’s best rooms — artist bookings, programming, guest experience and event marketing. It’s a separate discipline from the strategy work, but it’s where the cultural fluency that powers the strategy gets earned, weekend after weekend.</p>
-          <p class="genre-line reveal">Afrobeat · Hip-Hop · R&amp;B · Amapiano</p>
+    <!-- ============================================ listen -->
+    <section class="m-listen" id="listen">
+      <div class="m-head">
+        <p class="mono"><span class="hot">●</span> Now spinning</p>
+        <h2 class="m-h2">Press play.<br><span class="o">Then move.</span></h2>
+      </div>
+
+      <div class="m-players">
+        <div class="m-frame m-frame--spotify">
+          <p class="mono m-frame-lbl"><span>Spotify</span><span>Artist</span></p>
+          <iframe src="https://open.spotify.com/embed/artist/1kLA1jm8ulyIeZbKtUxs4J?utm_source=generator&amp;theme=0" title="AfroJunior on Spotify" height="452" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
         </div>
-        <div>
-          <p class="label reveal">Rooms curated &amp; produced · 2022 — 2025</p>
-          <ul class="venue-list">
-            <li class="reveal"><span class="venue">Hard Rock Cafe</span><span class="role">Curator · Producer</span></li>
-            <li class="reveal"><span class="venue">Marquee Singapore</span><span class="role">Curator · Producer</span></li>
-            <li class="reveal"><span class="venue">Tanjong Beach Club</span><span class="role">Curator · Producer</span></li>
-            <li class="reveal"><span class="venue">Hazel</span><span class="role">Curator · Producer</span></li>
-            <li class="reveal"><span class="venue">GetJuice</span><span class="role">Curator · Producer</span></li>
-          </ul>
+
+        <div class="m-frame m-frame--yt">
+          <p class="mono m-frame-lbl"><span>YouTube</span><span>Watch</span></p>
+          <button class="yt" type="button" data-yt="PtBMWIzw26E" aria-label="Play the video">
+            <img src="https://i.ytimg.com/vi/PtBMWIzw26E/hqdefault.jpg" alt="" loading="lazy">
+            <span class="yt-btn" aria-hidden="true"></span>
+          </button>
+          <div class="m-links mono">
+            <a href="https://open.spotify.com/artist/1kLA1jm8ulyIeZbKtUxs4J" target="_blank" rel="noopener">Spotify ↗</a>
+            <a href="https://www.youtube.com/watch?v=PtBMWIzw26E" target="_blank" rel="noopener">YouTube ↗</a>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- ============================================ bio -->
+    <section class="m-bio" id="about">
+      <p class="mono m-bio-lbl">Who's this guy</p>
+      <h2 class="m-hey up">Hey, I'm AfroJunior <span class="wave" aria-hidden="true">👋🏾</span></h2>
+
+      <div class="m-bio-cols">
+        <p class="up">Born in Nigeria, grew up in Singapore. So yes, I can handle spice and I also queue for chicken rice like a pro.</p>
+        <p class="up">Music started as a hobby when I was a kid. Hip-hop, pop, R&amp;B, whatever I was feeling that week. Then I joined the Yeti Pack crew, we got pretty good, and Universal Music came knocking with an offer.</p>
+      </div>
+
+      <p class="m-pull up">We said no.<br><span class="o">Then we broke up.</span></p>
+      <p class="m-aside mono up">Classic boy band arc, except we didn't even get the reunion tour.</p>
+
+      <div class="m-bio-cols">
+        <p class="up"><strong>I kept going though.</strong> These days I'm deep in Afro House and Afrobeats. Every track I make has a story in it, something you can actually connect with.</p>
+        <p class="up">But I also need you to dance. That's the deal. You feel it, then you move. No standing at the back holding your drink.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ numbers -->
+    <section class="m-stats" aria-label="Numbers">
+      <div class="stat"><span class="stat-n" data-count="1" data-suffix="M+">0</span><span class="mono">Listeners so far. Wild. Thank you.</span></div>
+      <div class="stat"><span class="stat-n" data-count="120" data-suffix="K">0</span><span class="mono">Followers. Tell your friends.</span></div>
+      <div class="stat"><span class="stat-n" data-count="5" data-pad="2">0</span><span class="mono">Big rooms &amp; one festival</span></div>
+    </section>
+
+    <!-- ============================================ rooms -->
+    <section class="m-rooms" id="rooms" aria-label="Where I've played">
+      <div class="m-head m-head--row">
+        <h2 class="m-h2">Where I've<br><span class="o">played.</span></h2>
+        <p class="mono">Clubs → events → festivals</p>
+      </div>
+      <a class="room" data-media="assets/img/music/room-marquee.jpg"><span class="mono room-n">01</span><span class="room-t">Marquee</span><span class="mono room-d">Singapore · Club</span></a>
+      <a class="room" data-media="assets/img/music/room-zouk.jpg"><span class="mono room-n">02</span><span class="room-t">Zouk</span><span class="mono room-d">Singapore · Club</span></a>
+      <a class="room" data-media="assets/img/music/room-fclub.jpg"><span class="mono room-n">03</span><span class="room-t">F Club</span><span class="mono room-d">Singapore · Club</span></a>
+      <a class="room" data-media="assets/img/music/room-getjuice.jpg"><span class="mono room-n">04</span><span class="room-t">GetJuice</span><span class="mono room-d">Singapore · Events</span></a>
+      <a class="room" data-media="assets/img/music/room-senter.jpg"><span class="mono room-n">05</span><span class="room-t">Senter Festival</span><span class="mono room-d">Sri Lanka · Festival</span></a>
+    </section>
+
+    <div class="peek" aria-hidden="true"><div class="peek-in"></div></div>
+
+    <!-- ============================================ gallery -->
+    <section class="m-gallery" aria-label="Gallery">
+      <div class="m-head m-head--row">
+        <h2 class="m-h2">Camera<br><span class="o">roll.</span></h2>
+        <p class="mono">Tap to open</p>
+      </div>
+      <div class="gal" data-gallery="assets/img/music/gallery-"
+           data-fallback="assets/img/home/role-music.jpg|assets/img/home/role-dj.jpg|assets/img/home/role-events.jpg|assets/img/home/hero.jpg"></div>
+    </section>
+
+    <!-- ============================================ hire -->
+    <section class="m-hire" id="hire" aria-label="Hire me">
+      <div class="m-head">
+        <p class="mono"><span class="hot">●</span> Open for work</p>
+        <h2 class="m-h2">Hit me up.<br><span class="o">I don't bite.</span></h2>
+      </div>
+      <div class="hire-grid">
+        <a class="hire" href="mailto:obajews@hotmail.com?subject=Remix%20request%20%E2%80%94%20AfroJunior"><span class="mono">01</span><b>Remixes</b><i>→</i></a>
+        <a class="hire" href="mailto:obajews@hotmail.com?subject=Mixing%20enquiry%20%E2%80%94%20AfroJunior"><span class="mono">02</span><b>Mixing</b><i>→</i></a>
+        <a class="hire" href="mailto:obajews@hotmail.com?subject=Writing%20session%20%E2%80%94%20AfroJunior"><span class="mono">03</span><b>Writing</b><i>→</i></a>
+        <a class="hire" href="mailto:obajews@hotmail.com?subject=Production%20enquiry%20%E2%80%94%20AfroJunior"><span class="mono">04</span><b>Production</b><i>→</i></a>
+        <a class="hire" href="mailto:obajews@hotmail.com?subject=Collab%20%E2%80%94%20AfroJunior"><span class="mono">05</span><b>Collabs</b><i>→</i></a>
+        <a class="hire" href="mailto:obajews@hotmail.com?subject=Performance%20booking%20%E2%80%94%20AfroJunior"><span class="mono">06</span><b>Performance</b><i>→</i></a>
+      </div>
+      <p class="m-aside mono">Unless it's jollof.</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-cta">
-        <p class="label">Contact</p>
-        <h2>Let’s make something the culture <em>actually cares about.</em></h2>
-        <a class="footer-mail" href="mailto:obajews@hotmail.com">obajews@hotmail.com</a>
-      </div>
-      <div class="footer-grid">
-        <ul class="footer-nav">
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="music.html">Music</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="https://linkedin.com/in/benobaje" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-        <p class="footer-fine">Made in Singapore — soundtrack by AFROJUNIOR<br>© <span data-year>2026</span> Ben Obaje · SG / AU / NZ / LK</p>
-      </div>
+  <!-- ============================================ book -->
+  <footer class="book" id="book">
+    <p class="mono book-lbl">Bookings &amp; enquiries</p>
+    <a class="book-big" href="mailto:obajews@hotmail.com?subject=Booking%20%E2%80%94%20AfroJunior">Book<br><em>AfroJunior</em></a>
+    <div class="book-chips mono">
+      <a href="mailto:obajews@hotmail.com">obajews@hotmail.com</a>
+      <a href="https://open.spotify.com/artist/1kLA1jm8ulyIeZbKtUxs4J" target="_blank" rel="noopener">Spotify ↗</a>
+      <a href="https://www.youtube.com/watch?v=PtBMWIzw26E" target="_blank" rel="noopener">YouTube ↗</a>
+    </div>
+    <div class="book-base mono">
+      <span>© <span data-year>2026</span> AfroJunior</span>
+      <span><a href="index.html">Home</a> · <a href="creative.html">Creative</a></span>
+      <span>Singapore</span>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- lightbox -->
+  <div class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <img class="lb-img" alt="">
+    <button class="lb-x mono" type="button">Close ✕</button>
+    <button class="lb-prev" type="button" aria-label="Previous photo">←</button>
+    <button class="lb-next" type="button" aria-label="Next photo">→</button>
+    <p class="lb-count mono"></p>
+  </div>
+
+  <script src="js/music.js"></script>
 </body>
 </html>
